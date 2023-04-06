@@ -17,7 +17,7 @@ app.use(
 );
 
 app.get('/api/getstats', (req, res) => {
-	const connection = mysql.createConnection({
+	const connection = mysql.createPool({
 		host: process.env.DBServer,
 		user: process.env.DBUsername,
 		password: process.env.DBPassword,
