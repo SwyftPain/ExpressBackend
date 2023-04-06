@@ -1,7 +1,7 @@
-import express, { Request, Response } from 'express'
+const express = require('express')
 const router = express.Router()
-import mysql from 'mysql'
-import * as dotenv from 'dotenv'
+const mysql = require( 'mysql' )
+const dotenv = require( 'dotenv' )
 dotenv.config()
 
 /* GET users listing. */
@@ -32,4 +32,4 @@ router.get('/', function (req, res, next) {
   fetchData()
 })
 
-export default router
+module.exports = router
