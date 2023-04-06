@@ -1,11 +1,11 @@
-const express = require('express')
-const router = express.Router()
+var express = require('express');
+var router = express.Router();
 const mysql = require( 'mysql' )
 const dotenv = require( 'dotenv' )
 dotenv.config()
 
 /* GET users listing. */
-router.get('/', function (req, res, next) {
+router.get('/', function(req, res, next) {
   async function fetchData () {
     try {
       const connection = mysql.createConnection({
@@ -30,6 +30,6 @@ router.get('/', function (req, res, next) {
     }
   }
   fetchData()
-})
+});
 
-module.exports = router
+module.exports = router;
