@@ -5,6 +5,10 @@ dotenv.config();
 
 const port = process.env.PORT || 3000;
 
+app.get('/', (req, res) => {
+	res.json({ message: 'Hello World!' });
+});
+
 app.get('/api/getstats', (req, res) => {
 	const connection = mysql.createPool({
 		host: process.env.DBServer,
