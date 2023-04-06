@@ -23,7 +23,8 @@ app.get('/api/getstats', (req, res) => {
 		password: process.env.DBPassword,
 		database: process.env.DBName,
 		connectTimeout: 30000,
-		timeout: 30000,
+        timeout: 30000,
+        connectionLimit: 100,
 	});
 
 	connection.query('SELECT * FROM users ORDER BY date DESC', (err, rows) => {
