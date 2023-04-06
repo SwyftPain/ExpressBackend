@@ -10,7 +10,11 @@ app.get('/', (req, res) => {
 	res.json({ message: 'Hello World!' });
 } );
 
-app.use(cors());
+app.use(
+	cors({
+		origin: 'https://www.swyftpain.co.uk',
+	})
+);
 
 app.get('/api/getstats', (req, res) => {
 	const connection = mysql.createConnection({
