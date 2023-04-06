@@ -10,16 +10,13 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/getstats', (req, res) => {
-	const connection = mysql.createPool({
+	const connection = mysql.createConnection({
 		host: process.env.DBServer,
 		user: process.env.DBUsername,
 		password: process.env.DBPassword,
 		database: process.env.DBName,
 		connectTimeout: 30000,
 		timeout: 30000,
-		waitForConnections: true,
-		connectionLimit: 100,
-		queueLimit: 0,
 	});
 
 	connection.query('SELECT * FROM users ORDER BY date DESC', (err, rows) => {
