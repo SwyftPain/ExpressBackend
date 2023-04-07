@@ -25,7 +25,6 @@ app.get('/api/getstats', (req, res) => {
 		connectTimeout: 30000,
         timeout: 30000,
         connectionLimit: 60000,
-		maximumPoolSize: 60000,
 		queueLimit: 60000,
 		waitForConnections: true,
 		acquireTimeout: 30000,
