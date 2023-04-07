@@ -24,7 +24,11 @@ app.get('/api/getstats', (req, res) => {
 		database: process.env.DBName,
 		connectTimeout: 30000,
         timeout: 30000,
-        connectionLimit: 100,
+        connectionLimit: 10000,
+		maximumPoolSize: 10000,
+		queueLimit: 10000,
+		waitForConnections: true,
+		acquireTimeout: 30000,
 	});
 
 	connection.query('SELECT * FROM users ORDER BY date DESC', (err, rows) => {
