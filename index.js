@@ -12,7 +12,8 @@ app.get('/', (req, res) => {
 
 app.use(
 	cors({
-		origin: 'https://www.swyftpain.co.uk',
+		// allow all
+		origin: '*',
 	})
 );
 
