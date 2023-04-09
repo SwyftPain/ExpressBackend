@@ -49,7 +49,7 @@ app.post('/api/addstats', (req, res) => {
 
 	if (winorloss === 'win') {
 		connection.query(
-			'UPDATE users SET wins = wins + 1, time = ? WHERE id = ?',
+			'UPDATE users SET wins = wins + 1, date = ? WHERE id = ?',
 			[time, userid],
 			(err, rows) => {
 				if (err) {
@@ -61,7 +61,7 @@ app.post('/api/addstats', (req, res) => {
 		);
 	} else {
 		connection.query(
-			'UPDATE users SET losses = losses + 1, time = ? WHERE id = ?',
+			'UPDATE users SET losses = losses + 1, date = ? WHERE id = ?',
 			[time, userid],
 			(err, rows) => {
 				if (err) {
