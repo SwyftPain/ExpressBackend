@@ -73,18 +73,20 @@ app.post('/api/addstats/:userid/:winorloss', (req, res) => {
 });
 
 app.post('/api/addnewstat/:discordId/:discordUsername', (req, res) => {
-	const userid = req.params.discordId;
-	const username = req.params.discordUsername;
+	const { discordId, discordUsername } = req.params;
 	const time = new Date().getTime();
 
 	connection.query(
-		'INSERT INTO users (discordid, user, wins, losses, date) VALUES (?, ?, 0, 0, ?)',
-		[userid, username, time],
+		'INSERT INTO users (discordid, user, date) VALUES (?, ?, ?)',
+		[discordId, discordUsername, time],
 		(err, rows) => {
-			if (err) {
+			if ( err )
+			{
+				console.log(req.params)
 				console.error(err);
 				return res.send(err);
 			}
+			console.log(req.params)
 			return res.send(rows);
 		}
 	);
