@@ -20,7 +20,7 @@
 			"dest": "/index.js"
 		},
 		{
-			"src": "/api/deletestats/:userid",
+			"src": "/api/deletestats",
 			"dest": "/index.js"
 		}
 	]

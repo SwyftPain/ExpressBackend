@@ -93,11 +93,11 @@ app.post('/api/addnewstat', (req, res) => {
 	);
 });
 
-app.delete('/api/deletestats/:userid', (req, res) => {
-	const userid = req.params.userid;
+app.delete('/api/deletestats', (req, res) => {
+	const userid = req.body.userid;
 
 	connection.query(
-		'DELETE FROM users WHERE discordid = ?',
+		'DELETE FROM users WHERE id = ?',
 		[userid],
 		(err, rows) => {
 			if (err) {
