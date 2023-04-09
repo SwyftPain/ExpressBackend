@@ -72,9 +72,9 @@ app.post('/api/addstats/:userid/:winorloss', (req, res) => {
 	}
 });
 
-app.post('/api/addnewstat/:userid/:username', (req, res) => {
-	const userid = req.params.userid;
-	const username = req.params.username;
+app.post('/api/addnewstat/:discordId/:discordUsername', (req, res) => {
+	const userid = req.params.discordId;
+	const username = req.params.discordUsername;
 	const time = new Date().getTime();
 
 	connection.query(
