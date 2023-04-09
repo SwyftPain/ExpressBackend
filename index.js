@@ -17,6 +17,8 @@ app.use(
 	})
 );
 
+app.use(express.json());
+
 const connection = mysql.createPool({
 	host: process.env.DBServer,
 	user: process.env.DBUsername,
@@ -40,9 +42,8 @@ app.get('/api/getstats', (req, res) => {
 	});
 });
 
-app.post('/api/addstats/:userid/:winorloss', (req, res) => {
-	const userid = req.params.userid;
-	const winorloss = req.params.winorloss;
+app.post('/api/addstats', (req, res) => {
+	const { userid, winorloss } = req.body;
 	const time = new Date().getTime();
 
 	if (winorloss === 'win') {
@@ -72,21 +73,20 @@ app.post('/api/addstats/:userid/:winorloss', (req, res) => {
 	}
 });
 
-app.post('/api/addnewstat/:discordId/:discordUsername', (req, res) => {
-	const { discordId, discordUsername } = req.params;
+app.post('/api/addnewstat', (req, res) => {
+	const { discordId, discordUsername } = req.body;
 	const time = new Date().getTime();
 
 	connection.query(
 		'INSERT INTO users (discordid, user, date) VALUES (?, ?, ?)',
 		[discordId, discordUsername, time],
 		(err, rows) => {
-			if ( err )
-			{
-				console.log(req.params)
+			if (err) {
+				console.log(req.body);
 				console.error(err);
 				return res.send(err);
 			}
-			console.log(req.params)
+			console.log(req.body);
 			return res.send(rows);
 		}
 	);

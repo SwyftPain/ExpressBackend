@@ -12,11 +12,11 @@
 			"dest": "/index.js"
 		},
 		{
-			"src": "/api/addstats/:userid/:winorloss",
+			"src": "/api/addstats",
 			"dest": "/index.js"
 		},
 		{
-			"src": "/api/addnewstat/:discordId/:discordUsername",
+			"src": "/api/addnewstat",
 			"dest": "/index.js"
 		},
 		{
