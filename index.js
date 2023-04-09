@@ -78,7 +78,7 @@ app.post('/api/addnewstat/:discordId/:discordUsername', (req, res) => {
 	const time = new Date().getTime();
 
 	connection.query(
-		'INSERT INTO users (discordid, user, wins, losses, time) VALUES (?, ?, 0, 0, ?)',
+		'INSERT INTO users (discordid, user, wins, losses, date) VALUES (?, ?, 0, 0, ?)',
 		[userid, username, time],
 		(err, rows) => {
 			if (err) {
