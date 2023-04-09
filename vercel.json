@@ -10,6 +10,22 @@
 		{
 			"src": "/api/getstats",
 			"dest": "/index.js"
+		},
+		{
+			"src": "/api/addstats/:userid/:winorloss",
+			"dest": "/index.js"
+		},
+		{
+			"src": "/api/addnewstat/:discordId/:discordUsername",
+			"dest": "/index.js"
+		},
+		{
+			"src": "/api/deletestats/:userid",
+			"dest": "/index.js"
+		},
+		{
+			"src": "/",
+			"dest": "/index.js"
 		}
 	]
 }
